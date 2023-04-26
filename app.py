@@ -5,7 +5,7 @@ from cmail import sendmail
 from tokenreset import token
 import random
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
-import io
+import os
 from io import BytesIO
 import mysql.connector
 app=Flask(__name__)

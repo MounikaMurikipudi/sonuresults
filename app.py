@@ -12,12 +12,7 @@ import mysql.connector
 app=Flask(__name__)
 app.secret_key='admin@123'
 app.config['SESSION_TYPE']='filesystem'
-'''
-app.config['MYSQL_HOST']='localhost'
-app.config['MYSQL_USER']='root'
-app.config['MYSQL_PASSWORD']='admin'
-app.config['MYSQL_DB']='sonuresults'
-'''
+
 db=os.environ['RDS_DB_NAME']
 user=os.environ['RDS_USERNAME']
 password=os.environ['RDS_PASSWORD']

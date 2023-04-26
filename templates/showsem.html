@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Show Sem </title>
+       <style>
+         table,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        body{
+            background-image: url('https://e0.pxfuel.com/wallpapers/425/816/desktop-wallpaper-things-to-say-instead-of-good-job.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .btnstyle {
+            background-color:rgb(141, 141, 174);
+            color:black;
+            padding:10px;
+            border-radius: 15px;
+            border:none;
+            font-size: 25px;
+            margin: 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <a href="{{url_for('dash')}}"><button style="float:right" class="btnstyle">Back</button></a>
+    <form method="POST">
+        <center>  <input type="search"  name="search" placeholder="Roll no...">
+           <button>Search</button></center> </a>
+       </form>
+    <h1 style="color:black; margin-left:400px;">Sem Results</h1>
+    <div>
+  
+   <table cellpadding="10px">
+    <br>
+    <tr>
+        <td><h2>course id</h2></td>
+        <td><h2>student id</h2></td>
+        <td><h2>Semister</h2></td>
+        <td><h2>Sem marks</h2></td>
+        <td><h2>Internal1</h2></td>
+        <td><h2>Internal marks1</h2></td>
+        <td><h2>Internal2</h2></td>
+        <td><h2>Internal marks2</h2></td>
+        
+        
+    </tr>
+    
+    {% for i in data %}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+        <td>{{i[6]}}</td>
+        <td>{{i[7]}}</td>
+        <td><a href="{{url_for('deletes',courseid=i[0],studentid=i[1])}}">Delete</a></td>
+       
+
+
+
+    </tr>
+    
+{% endfor %}
+       
+   </table>
+   <div>
+    <a href="{{url_for('addsubject')}}"><button class="btnstyle">Submit</button></a>
+</div>
+    </div>
+</body>
+</html>

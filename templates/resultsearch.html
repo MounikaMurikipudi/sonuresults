@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table,td{
+       border: 1px solid black;
+       border-collapse: collapse;
+   }
+   body{
+       background-image: url('');
+   
+       background-repeat: no-repeat;
+       background-size: cover;
+   }
+   .btnstyle {
+       background-color:rgb(131, 131, 193);
+       color:black;
+       padding:10px;
+       border-radius: 20px;
+       border:none;
+       font-size: 25px;
+       margin: 5px;
+       cursor: pointer;
+   }
+</style>
+<body>
+    <form method="POST">
+     <center>  <input type="search"  name="search" placeholder="Roll no...">
+        <button>Search</button></center> </a>
+    </form>
+   <table cellpadding="10px">
+    <br>
+    <tr>
+        <td><h2>course id</h2></td>
+        <td><h2>student id</h2></td>
+        <td><h2>Semister</h2></td>
+        <td><h2>Sem marks</h2></td>
+        <td><h2>Internal1</h2></td>
+        <td><h2>Internal marks1</h2></td>
+        <td><h2>Internal2</h2></td>
+        <td><h2>Internal marks2</h2></td>
+        
+        
+    </tr>
+    
+    {% for i in data %}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+        <td>{{i[6]}}</td>
+        <td>{{i[7]}}</td>
+        
+
+    </tr>
+    
+{% endfor %}
+       
+   </table>
+   <div>
+    <a 
+      </form>
+</body>
+</html>

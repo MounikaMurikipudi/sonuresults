@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Dashboard</title>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #44c7eb;
+  
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: rgb(5, 5, 5);
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: rgb(10, 11, 11);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+      
+    
+    
+      .main{
+        text-align: center;
+        font-size: large;
+        
+    }
+    .marq{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 30px;
+        font-weight: 800;
+        color:#110e18;
+        font-family: sans-serif;
+    }
+.bgcolor{
+    background-image: url('https://img.wegreenkw.com/2019/09/12th-class-results-2019.jpg');
+          background-size:cover;
+          height:700px;
+    
+}
+</style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+
+<div class="navbar">
+  <a href="{{url_for('logout')}}">Logout</a>
+ 
+  <div class="dropdown">
+    <button class="dropbtn">Add New 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="{{url_for('addstudent')}}">Add Student</a>
+      <a href="{{url_for('addsubject')}}">Add Subject </a>
+      <a href="{{url_for('addsemresult')}}">Add sem Result</a>
+      <a href="{{url_for('addinternalresult')}}">Add Internal Result</a>
+    </div></div>
+    <div class="dropdown">
+      <button class="dropbtn">View Record 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="{{url_for('studentrecord')}}">Student Record</a>
+        <a href="{{url_for('subjectrecord')}}">Subject Record </a>
+        <a href="{{url_for('editsemresult')}}">Sem Result</a>
+        <a href="{{url_for('editinternalresult')}}">internal Result</a>
+        
+      </div>
+  </div> 
+  <div class="main">
+    <marquee class="marq"
+            
+             behavior=alternate
+             direction="left"
+             loop="">
+        Welcome to Pb siddhartha collage of arts and science results portal
+    </marquee>
+
+<div class="bgcolor"></div>
+
+
+</body>
+
+</html>

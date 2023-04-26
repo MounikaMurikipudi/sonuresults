@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Result Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .top{
+          overflow:hidden;
+          background-color:#333;
+          
+        }
+        .top a{
+          float:left;
+          color:#f2f2f2;
+          text-align:center;
+          padding:5px 16px;
+          text-decoration:none;
+          font-size:17px;
+        }
+
+        .top a:hover{
+          background-color:#ddd;
+          color:white;
+        }
+        .top a.active{
+          background-color: #04AA6D;
+          color:white;
+
+        }
+        .bgcolor{
+          background-image: url('https://cdn.videvo.net/videvo_files/video/premium/getty_115/customThumbnails/istock-939965810.jpg');
+          background-size:cover;
+          height:800px;
+        }
+        marquee{
+          opacity: 60%;
+          
+        }
+        .mar{
+          font-size:"100px";
+        }
+        .para{
+          color:#5a7184;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:16px;
+        }
+        .image{
+              float:left;
+              width:25%;
+              padding:5px;
+        }
+        .image #pic{
+          width:100%;
+          height:150px;
+        }
+        .images #pics{
+          width: 40px;
+          height: 40px;
+          
+        }
+        .container{
+       top:62px;
+        left:540px;
+        position:relative;
+        width:30%;
+    
+    }
+    input{
+        float:right;
+        height: 40px;
+        width:90%;
+        padding-left:10px;
+        font-family:montseerat;
+        font-size: 18px;
+        letter-spacing:1px;
+        outline:none;
+    }
+    .fa{
+        background-color: rgb(237, 50, 8);
+        color:white;
+        font-size:20px;
+        text-align:center;
+        line-height:40px;
+        width:10%;
+    }
+    </style>
+</head>
+<body>
+    
+     <form method="post">
+       <div class="top">
+        <div class="images">
+        <center><h1 style="color:white">PB Siddhartha collage of arts and science </h1></center>
+        <br>
+        <a class="active" href="#Home">home</a>
+        <a href="{{url_for('search')}}">Results</a>
+        <a href="#section">About us</a>
+       </div></div>
+       <div class="bgcolor">
+        <br>
+        <br>
+        <center><marquee scrollamount="5" bgcolor="yellow" direction="down" height="400px" width="40%" behavior="alternate" ><h1 class="mar"><center>MCA</center>
+        <center>MCA Result announced on 12th march 2023</center></marquee></h1></center>
+       </div>
+       <div>
+        </div>
+        <br><br>
+        <center><h1 style="color:black;" id="section">About Us</h1></center>
+       <div class="image">
+        <img id="pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDe6yVvSYWzA9QBtpN4K1A6yG2JbLjUmCa-Ppp_IpxsMoU_Eh0UDJIF7W6IBFSerK3mrk&usqp=CAU"/>
+        </div>
+        <div class="image">
+        <img id="pic" src="https://www.collegesamachar.com/uploads/colleges/gallery/35/1647344106pb-siddhartha-college.jpg"/>
+        </div>
+        <div class="image">
+        <img id="pic" src="https://static.zollege.in/public/college_data/images/campusimage/1479706936extra1.JPG"/>
+        </div>
+        <div class="image">
+        <img id="pic" src="https://pbs.twimg.com/media/DJkaE0BVwAA0T9q.jpg"/>
+        </div> 
+        <br><br><br><br><br><br>
+       <center> <h3>PB siddhartha outside appearance</h3></center>
+       <center><p class="para">Parvathaneni Brahmayya Siddhartha College of Arts & Science is the first offspring of
+       "Siddhartha Academy of General & Technical Education". In the year 1975, the college was started with 200 students
+       and 15 faculty members with B.A. and B.Com. programmes. From this modest beginning, the college has emerged as one 
+       of the premiere institutions of higher learning in the State, with strength of 2618 students and 108 faculty members
+        for the year 2017-18. The college is offering B.A., B.Com., B.Com.(Hons.) Accounting & Finance, B.Com. (Hons.) Tax 
+        Procedures & Practice, B.Com. (Computer Applications), B.B.A., B.B.A., (Business Analytics), B.C.A. and B.Sc. 
+        programmes with Mathematics, Physics, Computer Science, Electronics, Statistics and Chemistry. B.Sc. (Hons.) Computer
+         Science and Diploma in Yoga Education (DYEd). PG programmes are M.A.(English), M.Com., M.B.A., M.C.A., M.Sc. programmes 
+         with Mathematics, Chemistry, Computer Science and Physics.
+        </p></center>
+        <div class="image">
+          <img id="pic" src="https://www.collegesamachar.com/uploads/colleges/gallery/35/1647342540pb-siddhartha-college-6.jpg"/>
+          </div>
+          <div class="image">
+          <img id="pic" src="https://images.shiksha.com/mediadata/images/1554356694phpqyCpV7.jpeg"/>
+          </div>
+          <div class="image">
+          <img id="pic" src="https://content.jdmagicbox.com/comp/vijayawada/c3/0866px866.x866.180921222201.g1c3/catalogue/pb-siddhartha-college-auditorium-siddhartha-nagar-vijayawada-auditoriums-4zks7o4dyu.jpg"/>
+          </div>
+          <div class="image">
+          <img id="pic" src="https://static.zollege.in/public/college_data/images/campusimage/159117167865274693_2262151737209050_5451905033115271168_o.jpg"/>
+          </div> 
+          <center> <h3>PB siddhartha College Auditorium</h3></center>
+        <center><p class="para">Pb Siddhartha College Auditorium in Siddhartha Nagar, Vijayawada Pb Siddhartha College 
+          Auditorium in Vijayawada is one of the leading businesses in the Auditoriums. Find Address, Contact Number, Reviews 
+          & Ratings, Photos, Maps of Pb Siddhartha College Auditorium, Vijayawada.
+          Pb Siddhartha College Auditorium in Siddhartha Nagar has a wide range of products and/or services to cater to the 
+          varied requirements of their customers. The staff at this establishment are courteous and prompt at providing any assistance.
+          They readily answer any queries or questions that you may have. This establishment is functional from 8:00 - 19:00.</p>
+          <div class="image">
+            <img id="pic" src="https://content.jdmagicbox.com/comp/vijayawada/b6/0866px866.x866.181230004545.c6b6/catalogue/pb-siddhartha-library-siddhartha-nagar-vijayawada-libraries-fq4a85kyjx.jpg"/>
+            </div>
+            <div class="image">
+            <img id="pic" src="https://www.pvpsiddhartha.ac.in/library/SRI_6551.jpg"/>
+            </div>
+            <div class="image">
+            <img id="pic" src="https://www.collegesamachar.com/uploads/colleges/gallery/35/1647342540pb-siddhartha-library-3.jpg"/>
+            </div>
+            <div class="image">
+            <img id="pic" src="https://www.pvpsiddhartha.ac.in/library/SRI_6552.jpg"/>
+            </div> 
+            <center> <h3>PB siddhartha College Library </h3></center>
+          <center><p class="para">The Central Library is one of the important facilities of Prasad V Potluri Siddhartha Institute of Technology
+             as it caters to the information and research needs of faculty and students. Originated in the year 1998. The Central Library has 
+             adopted Open Access System. All the books are arranged classified as per Dewey decimal classification 21st edition which is helpful
+              to the users to locate his / her desired book.</p></center>
+              <div class="image">
+                <img id="pic" src="https://www.siddharthamahila.ac.in/admin/admin/uploads/indoor1.jpg"/>
+                </div>
+                <div class="image">
+                <img id="pic" src="https://www.siddharthamahila.ac.in/admin/admin/uploads/indoor8.jpg"/>
+                </div>
+                <div class="image">
+                <img id="pic" src="https://www.siddharthamahila.ac.in/admin/admin/uploads/indoor6.jpg"/>
+                </div>
+                <div class="image">
+                <img id="pic" src="https://www.siddharthamahila.ac.in/admin/admin/uploads/indoor5.jpg"/>
+                </div> 
+                <center> <h3>PB siddhartha College Indoor Stadium</h3></center>
+              <center><p class="para">The College has A good playground exists on the campus for games such as Cricket, Football, Volleyball,
+                 Basketball, and Athletics. Siddhartha Indoor Stadium, which is also situated on the college campus provides facilities for
+                  indoor activities such as Table - Tennis, Shuttle Badminton, Weight Lifting, etc.</p></center><br>
+              <h1 id="section1">Contacts Us</h1>
+              <div class="container" style="margin-right:70%;margin-bottom:10%">
+                <i class="fa fa-user"></i>
+                <input type="text" placeholder="enter username" name="name"/>
+            <br>
+            <br>  
+                <i class="fa fa-mobile-phone"></i>
+                <input type="email" placeholder="email" name="emailid"/>
+            <br>
+            <br>
+            <input type="textarea" placeholder="message" name="message"/>
+            <button>Submit</button>
+            </div>
+          </form>
+</body>
+</html>

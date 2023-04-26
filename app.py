@@ -1,5 +1,4 @@
 from flask import Flask,request,redirect,render_template,url_for,flash,session
-from flask_mysqldb import MySQL
 from flask_session import Session
 from otp import genotp
 from cmail import sendmail

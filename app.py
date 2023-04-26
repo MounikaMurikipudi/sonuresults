@@ -26,7 +26,7 @@ port=os.environ['RDS_PORT']
 mydb=mysql.connector.connect(host=host,user=user,password=password,db=db,port=port)
 #mydb=mysql.connector.connect(host='localhost',user='root',password='Eswar@2001',db='spm')
 with mysql.connector.connect(host=host,user=user,password=password,db=db,port=port) as conn:
-cursor=conn.cursor()
+    cursor=conn.cursor()
     cursor.execute("create table if not exists students(user varchar(30) primary key,email varchar(30),password varchar(10),ccode varchar(10))")
     cursor.execute("create table if not exists addstu(studentid varchar(10) primary key,studentname varchar(10),section varchar(20),mobile bigint unique,Address varchar(50),Department varchar(20))")
     cursor.execute("create table if not exists addsub(courseid varchar(20)primary key,coursetitle varchar(20),maxmarks bigint)")

@@ -286,7 +286,7 @@ def subjectrecord():
         return render_template('subjectrecord.html',data=dataupdate/<courseido>',methods=['GET','POST']))
     else:
         return redirect(url_for('login'))
-@app.route('/sub
+@app.route('/subupdate/<courseido>',methods=['GET','POST'])
 def subupdate(courseido):
     if session.get('user'):
         cursor=mydb.cursor(buffered=True)

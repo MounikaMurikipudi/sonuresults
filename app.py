@@ -283,7 +283,7 @@ def subjectrecord():
         data=cursor.fetchall()
         print(data)
         cursor.close()
-        return render_template('subjectrecord.html',data=dataupdate/<courseido>',methods=['GET','POST']))
+        return render_template('subjectrecord.html',data=data)
     else:
         return redirect(url_for('login'))
 @app.route('/subupdate/<courseido>',methods=['GET','POST'])

@@ -325,6 +325,8 @@ def search():
             cursor.close()
             return render_template('resultsearch.html',data=data)
         return render_template('resultsearch.html')
+    else:
+        return redirect(url_for('index'))
 @app.route('/editsemresult',methods=['GET','POST'])
 def editsemresult():
     if session.get('user'):

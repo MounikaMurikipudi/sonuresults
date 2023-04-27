@@ -45,27 +45,27 @@ def register():
         user=request.form['AdminName']
         Email=request.form['email']
         password=request.form['password']
-        ccode=request.form['Ccode']
-        cursor=mydb.cursor(buffered=True)
-        code='admin@123'
-        if code==code:
+        code=request.form['code']
+        ccode='admin@123'
+        if ccode==code:
+            cursor=mydb.cursor(buffered=True)
             cursor.execute('select user from register')
             data=cursor.fetchall()
+            cursor.execute('select email from register')
+            edata=cursor.fetchall()
             if (user,) in data:
                 flash('user already exits')
                 return render_template('register.html')
-            cursor.close()
-            if (email,) in data:
+            if (email,) in edata:
                 flash('email already exit')
                 return render_template('register.html')
             cursor.close()
             otp=genotp()
-            subject='Thanks for registering to the application'
-            body=f'Use this otp to registre{otp}'
-            sendmail(Email,subject,body)
-            return render_template('otp.html',otp=otp,user=user,Email=Email,password=password,ccode=ccode)
+            sendmail(email,otp)
+            return render_template('otp.html',otp=otp,user=user,Email=Email,password=password)
         else:
             flash('Invaild Secret code')
+            return render_template('register.html')
     return render_template('register.html')
 @app.route('/login',methods=['GET','POST'])
 def login():

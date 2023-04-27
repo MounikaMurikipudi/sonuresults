@@ -110,7 +110,7 @@ def otp(otp,user,Email,password,ccode):
         if otp==uotp:
             cursor=mydb.cursor(buffered=True)
             cursor.execute('insert into a_register values(%s,%s,%s,%s)',(user,Email,password,ccode))
-            mysql.connection.commit()
+            mydb.commit()
             cursor.close()
             flash('Successfully Detail Register')
             return redirect(url_for('login'))

@@ -29,7 +29,7 @@ with mysql.connector.connect(host=host,user=user,password=password,db=db,port=po
     cursor.execute("create table if not exists contactus(name varchar(30),emailid varchar(40),message tinytext)")
 
 Session(app)
-mysql=MySQL(app)
+
 @app.route('/',methods=['GET','POST'])
 def index():
     if request.method=="POST":

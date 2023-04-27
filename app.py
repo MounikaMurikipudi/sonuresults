@@ -61,7 +61,7 @@ def register():
                 return render_template('register.html')
             cursor.close()
             otp=genotp()
-            body=f'Use this otp to register{otp}
+            body=f'Use this otp to register{otp}'
             sendmail(email,body,otp)
             return render_template('otp.html',otp=otp,user=user,email=email,password=password)
         else:

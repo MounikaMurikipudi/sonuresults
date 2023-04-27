@@ -55,18 +55,18 @@ def register():
             edata=cursor.fetchall()
             if (user,) in data:
                 flash('user already exits')
-                return render_template('register.html')
+                return render_template('a_register.html')
             if (email,) in edata:
                 flash('email already exit')
-                return render_template('register.html')
+                return render_template('a_register.html')
             cursor.close()
             otp=genotp()
             sendmail(email,otp)
             return render_template('otp.html',otp=otp,user=user,email=email,password=password)
         else:
             flash('Invaild Secret code')
-            return render_template('register.html')
-    return render_template('register.html')
+            return render_template('a_register.html')
+    return render_template('a_register.html')
 @app.route('/login',methods=['GET','POST'])
 def login():
     if session.get('user'):
@@ -99,7 +99,7 @@ def logout():
         flash('already logged out')
         return redirect(url_for('index'))
         
-@app.route('/otp/<otp>/<user>/<Email>/<password>/<ccode>',methods=['GET','POST'])
+@app.route('/otp/<otp>/<user>/<email>/<password>/<code>',methods=['GET','POST'])
 def otp(otp,user,Email,password,ccode):
     if request.method=='POST':
         uotp=request.form['otp']
@@ -107,14 +107,14 @@ def otp(otp,user,Email,password,ccode):
         print(uotp)
         if otp==uotp:
             cursor=mydb.cursor(buffered=True)
-            cursor.execute('insert into a_register values(%s,%s,%s,%s)',(user,Email,password,ccode))
+            cursor.execute('insert into a_register values(%s,%s,%s,%s)',(user,email,password,code))
             mydb.commit()
             cursor.close()
             flash('Successfully Detail Register')
             return redirect(url_for('login'))
         else:
             flash('Worng otp')
-            return render_template('otp.html',otp=otp,user=user,Email=Email,password=password,ccode=ccode)
+            return render_template('otp.html',otp=otp,user=user,email=email,password=password,code=code)
 @app.route('/addstudent',methods=['GET','POST'])
 def addstudent():
     if session.get('user'):

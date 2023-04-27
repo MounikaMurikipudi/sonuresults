@@ -39,7 +39,7 @@ def index():
         cursor=mydb.cursor(buffered=True)
         cursor.execute('insert into contactus(name,emailid,message) values(%s,%s,%s)',[name,emailid,message])
         mydb.commit()
-    return render_template('myresult.html')
+    return render_template('Myresult.html')
 @app.route('/register',methods=['GET','POST'])
 def register():
     if request.method=='POST':

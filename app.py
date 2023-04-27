@@ -49,7 +49,7 @@ def register():
         cursor=mydb.cursor(buffered=True)
         code='admin@123'
         if code==code:
-            cursor.execute('select user from a_register')
+            cursor.execute('select user from register')
             data=cursor.fetchall()
             if (user,) in data:
                 flash('user already exits')

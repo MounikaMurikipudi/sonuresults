@@ -25,7 +25,7 @@ with mysql.connector.connect(host=host,user=user,password=password,db=db,port=po
     cursor.execute("create table if not exists addstu(studentid varchar(10) primary key,studentname varchar(10),section varchar(20),mobile bigint unique,Address varchar(50),Department varchar(20))")
     cursor.execute("create table if not exists addsub(courseid varchar(20)primary key,coursetitle varchar(20),maxmarks bigint)")
     cursor.execute("create table if not exists internalresults(studentid varchar(10),courseid varchar(20),Internal1 enum('Internal1'),Internal2 enum('Internal2'),internalmarks2 smallint,internalmarks1 smallint,section enum('BCA','B.Sc M.S.Ds','BBA','BBA BA','BA','BSC MPCs','B.Sc C.A.M.E','B.Sc M.S.Cs'),foreign key(studentid) references addstu(studentid))")
-    cursor.execute("create table if not exists semresults(studentid varchar(10),courseid varchar(20),Semister enum('sem1','sem2','sem3','sem4','sem5','sem6'),Semmarks int,section enum('BCA','B.Sc M.S.Ds','BBA','BBA BA','BA','BSC MPCs','B.Sc C.A.M.E','B.Sc M.S.Cs'),foreign key(studentid) references addstu(studentid),foreign key(courseid) references addsub(courseid))")
+    cursor.execute("create table if not exists semresults(studentid varchar(10),courseid varchar(20),Semister enum('sem1','sem2','sem3','sem4','sem5','sem6'),Semmarks int,section enum('BCA','B.Sc M.S.Ds','BBA','BBA BA','BA','BSC MPCs','B.Sc C.A.M.E','B.Sc M.S.Cs'),foreign key(studentid) references addstu(studentid))")
     cursor.execute("create table if not exists contactus(name varchar(30),emailid varchar(40),message tinytext)")
 
 Session(app)

@@ -43,7 +43,7 @@ def index():
 def register():
     if request.method=='POST':
         user=request.form['AdminName']
-        Email=request.form['email']
+        email=request.form['email']
         password=request.form['password']
         code=request.form['code']
         ccode='admin@123'
@@ -62,7 +62,7 @@ def register():
             cursor.close()
             otp=genotp()
             sendmail(email,otp)
-            return render_template('otp.html',otp=otp,user=user,Email=Email,password=password)
+            return render_template('otp.html',otp=otp,user=user,email=email,password=password)
         else:
             flash('Invaild Secret code')
             return render_template('register.html')

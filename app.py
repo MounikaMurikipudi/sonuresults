@@ -49,9 +49,9 @@ def register():
         ccode='admin@123'
         if ccode==code:
             cursor=mydb.cursor(buffered=True)
-            cursor.execute('select user from register')
+            cursor.execute('select user from a_register')
             data=cursor.fetchall()
-            cursor.execute('select email from register')
+            cursor.execute('select email from a_register')
             edata=cursor.fetchall()
             if (user,) in data:
                 flash('user already exits')

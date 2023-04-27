@@ -14,7 +14,7 @@
     {% endif %}
     {% endwith %} 
 <body>
-    <form method="POST" action="{{url_for('otp',otp=otp,user=user,Email=Email,password=password,ccode=ccode)}}">
+    <form method="POST" action="{{url_for('otp',otp=otp,user=user,email=email,password=password,code=code)}}">
     <h1>enter otp</h1>
     <input type="text" name="otp">
     <button>submit</button>

@@ -372,6 +372,6 @@ def deleted(courseid,studentid):
     cursor.close()
     flash('Records deleted successfully')
     return redirect(url_for('dash'))
- if __name__=="__main__":
+    if __name__=="__main__":
         app.run(use_reloader=True,debug=True)
     

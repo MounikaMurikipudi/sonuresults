@@ -46,6 +46,7 @@ def register():
         Email=request.form['email']
         password=request.form['password']
         ccode=request.form['Ccode']
+        cursor=mydb.cursor(buffered=True)
         code='admin@123'
         if code==code:
             cursor.execute('select user from a_register')

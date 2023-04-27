@@ -29,6 +29,7 @@ with mysql.connector.connect(host=host,user=user,password=password,db=db,port=po
     cursor.execute("create table if not exists contactus(name varchar(30),emailid varchar(40),message tinytext)")
 
 Session(app)
+mysql=MySQL(app)
 @app.route('/',methods=['GET','POST'])
 def index():
     if request.method=="POST":
@@ -38,35 +39,35 @@ def index():
         cursor=mydb.cursor(buffered=True)
         cursor.execute('insert into contactus(name,emailid,message) values(%s,%s,%s)',[name,emailid,message])
         mydb.commit()
-    return render_template('Myresult.html')
+    return render_template('myresult.html')
 @app.route('/register',methods=['GET','POST'])
 def register():
     if request.method=='POST':
         user=request.form['AdminName']
-        email=request.form['email']
+        Email=request.form['email']
         password=request.form['password']
-        code=request.form['code']
-        ccode='admin@123'
-        if ccode==code:
-            cursor=mydb.cursor(buffered=True)
+        ccode=request.form['Ccode']
+        code='admin@123'
+        cursor=mydb.cursor(buffered=True)
+        if code==code:
             cursor.execute('select user from a_register')
             data=cursor.fetchall()
-            cursor.execute('select email from a_register')
-            edata=cursor.fetchall()
             if (user,) in data:
                 flash('user already exits')
                 return render_template('register.html')
-            if (email,) in edata:
+            cursor.execute('select email from a_register')
+            e_data=cursor.fetchall()
+            cursor.close()
+            if (Email,) in e_data:
                 flash('email already exit')
                 return render_template('register.html')
-            cursor.close()
             otp=genotp()
-            body=f'Use this otp to register{otp}'
-            sendmail(email,body,otp)
-            return render_template('otp.html',otp=otp,user=user,email=email,password=password)
+            subject='Thanks for registering to the application'
+            body=f'Use this otp to registre{otp}'
+            sendmail(Email,subject,body)
+            return render_template('otp.html',otp=otp,user=user,Email=Email,password=password,ccode=ccode)
         else:
             flash('Invaild Secret code')
-            return render_template('register.html')
     return render_template('register.html')
 @app.route('/login',methods=['GET','POST'])
 def login():
@@ -100,22 +101,22 @@ def logout():
         flash('already logged out')
         return redirect(url_for('index'))
         
-@app.route('/otp/<otp>/<user>/<email>/<password>/<code>',methods=['GET','POST'])
-def otp(otp,user,email,password,code):
+@app.route('/otp/<otp>/<user>/<Email>/<password>/<ccode>',methods=['GET','POST'])
+def otp(otp,user,Email,password,ccode):
     if request.method=='POST':
         uotp=request.form['otp']
         print(otp)
         print(uotp)
         if otp==uotp:
             cursor=mydb.cursor(buffered=True)
-            cursor.execute('insert into a_register values(%s,%s,%s,%s)',(user,email,password,code))
-            mydb.commit()
+            cursor.execute('insert into a_register values(%s,%s,%s,%s)',(user,Email,password,ccode))
+            mysql.connection.commit()
             cursor.close()
             flash('Successfully Detail Register')
             return redirect(url_for('login'))
         else:
             flash('Worng otp')
-            return render_template('otp.html',otp=otp,user=user,email=email,password=password,code=code)
+            return render_template('otp.html',otp=otp,user=user,Email=Email,password=password,ccode=ccode)
 @app.route('/addstudent',methods=['GET','POST'])
 def addstudent():
     if session.get('user'):
@@ -298,7 +299,7 @@ def subupdate(courseido):
            courseid=request.form['courseid']
            coursetitle=request.form['coursetitle']
            maxmarks=request.form['mmarks']
-           cursor=mydb.cursor(buffered=True)
+           cursor=mysql.connection.cursor()
            cursor.execute('update addsub set courseid=%s,coursetitle=%s,maxmarks=%s where courseid=%s',[courseid,coursetitle,maxmarks,courseido])
            mydb.commit()
            cursor.close()
@@ -327,7 +328,6 @@ def search():
             cursor.close()
             return render_template('resultsearch.html',data=data)
         return render_template('resultsearch.html')
-   
 @app.route('/editsemresult',methods=['GET','POST'])
 def editsemresult():
     if session.get('user'):
@@ -372,6 +372,9 @@ def deleted(courseid,studentid):
     cursor.close()
     flash('Records deleted successfully')
     return redirect(url_for('dash'))
-if __name__=="__main__":
-    app.run(use_reloader=True,debug=True)
+
+
+        
+        
+app.run(use_reloader=True,debug=True)
     

@@ -318,16 +318,16 @@ def delete(courseid):
     return redirect(url_for('subjectrecord'))
 @app.route('/search',methods=['GET','POST'])
 def search():
-    if session.get('user'):
-        if request.method=='POST':
-            search=request.form['search']
-            cursor=mydb.cursor(buffered=True)
-            cursor.execute('select a.courseid,a.studentid,a.semister,a.semmarks,i.Internal1,i.internalmarks1,i.Internal2,i.internalmarks2 from addstu as s inner join semresults as a on s.studentid=a.studentid  inner join internalresults as i on s.studentid=i.studentid and i.courseid=a.courseid where s.studentid=%s',[search])
-            data=cursor.fetchall()
-            mydb.commit()
-            cursor.close()
-            return render_template('resultsearch.html',data=data)
-        return render_template('resultsearch.html')
+    if request.method=='POST':
+        search=request.form['search']
+        cursor=mydb.cursor(buffered=True)
+        cursor.execute('select a.courseid,a.studentid,a.semister,a.semmarks,i.Internal1,i.internalmarks1,i.Internal2,i.internalmarks2 from addstu as s inner join semresults as a on s.studentid=a.studentid  inner join internalresults as i on s.studentid=i.studentid and i.courseid=a.courseid where s.studentid=%s',[search])
+        data=cursor.fetchall()
+        mydb.commit()
+        cursor.close()
+        return render_template('resultsearch.html',data=data)
+    return render_template('resultsearch.html')
+    
 @app.route('/editsemresult',methods=['GET','POST'])
 def editsemresult():
     if session.get('user'):

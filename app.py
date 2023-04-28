@@ -65,7 +65,7 @@ def register():
             subject='Thanks for registering to the application'
             body=f'Use this otp to registre{otp}'
             sendmail(Email,subject,body)
-            return render_template('otp.html',otp=otp,user=user,Email=Email,password=password,ccode=ccode)
+            return render_template('otp.html',otp=otp,user=user,Email=Email,password=password,Ccode=Ccode)
         else:
             flash('Invaild Secret code')
     return render_template('register.html')
@@ -109,7 +109,7 @@ def otp(otp,user,Email,password,ccode):
         print(uotp)
         if otp==uotp:
             cursor=mydb.cursor(buffered=True)
-            cursor.execute('insert into a_register values(%s,%s,%s,%s)',(user,Email,password,ccode))
+            cursor.execute('insert into a_register values(%s,%s,%s,%s)',(user,Email,password,Ccode))
             mydb.commit()
             cursor.close()
             flash('Successfully Detail Register')

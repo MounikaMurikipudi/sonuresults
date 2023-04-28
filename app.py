@@ -129,7 +129,7 @@ def addstudent():
             Department=request.form['Department']
             cursor=mydb.cursor(buffered=True)
             cursor.execute('insert into addstu value(%s,%s,%s,%s,%s,%s)',(studentid,studentname,section,mobile,Address,Department))
-            cursor.connection.commit()
+            mydb.commit()
             flash(f' added successfully')
             return redirect(url_for('dash'))
         return render_template('addstudent.html')
@@ -144,7 +144,7 @@ def addsubject():
             mmark=request.form['mmark']
             cursor=mydb.cursor(buffered=True)
             cursor.execute('insert into addsub value(%s,%s,%s)',(courseid,coursetitle,mmark))
-            cursor.connection.commit()
+            mydb.commit()
             flash(f' added successfilly')
             return redirect(url_for('dash'))
         return render_template('addsubject.html')
@@ -205,7 +205,7 @@ def addsemresult():
             section=request.form['section']
             cursor=mydb.cursor(buffered=True)
             cursor.execute('insert into semresults value(%s,%s,%s,%s,%s)',(id1,course,semt,smarks,section))
-            cursor.connection.commit()
+            mydb.commit()
             flash(f'added successfilly')
             return redirect(url_for('dash'))
         return render_template('addsemresult.html',data=data,cdata=cdata)
@@ -229,7 +229,7 @@ def addinternalresult():
             section=request.form['section']
             cursor=mydb.cursor(buffered=True)
             cursor.execute('insert into internalresults value(%s,%s,%s,%s,%s,%s,%s)',(id1,course,int1,int2,imarks1,imarks2,section))
-            cursor.connection.commit()
+            mydb.commit()
             flash(f'added successfilly')
             return redirect(url_for('dash'))
         return render_template('addinternalresult.html',data=data,cdata=cdata)
@@ -299,7 +299,7 @@ def subupdate(courseido):
            courseid=request.form['courseid']
            coursetitle=request.form['coursetitle']
            maxmarks=request.form['mmarks']
-           cursor=mysql.connection.cursor()
+           cursor=mydb.cursor(buffered=True)
            cursor.execute('update addsub set courseid=%s,coursetitle=%s,maxmarks=%s where courseid=%s',[courseid,coursetitle,maxmarks,courseido])
            mydb.commit()
            cursor.close()

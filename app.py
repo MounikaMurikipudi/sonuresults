@@ -46,7 +46,7 @@ def register():
         user=request.form['AdminName']
         Email=request.form['email']
         password=request.form['password']
-        ccode=request.form['Ccode']
+        Ccode=request.form['Ccode']
         code='admin@123'
         cursor=mydb.cursor(buffered=True)
         if code==code:
@@ -101,8 +101,8 @@ def logout():
         flash('already logged out')
         return redirect(url_for('index'))
         
-@app.route('/otp/<otp>/<user>/<Email>/<password>/<ccode>',methods=['GET','POST'])
-def otp(otp,user,Email,password,ccode):
+@app.route('/otp/<otp>/<user>/<Email>/<password>/<Ccode>',methods=['GET','POST'])
+def otp(otp,user,Email,password,Ccode):
     if request.method=='POST':
         uotp=request.form['otp']
         print(otp)

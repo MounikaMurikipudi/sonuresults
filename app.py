@@ -169,7 +169,7 @@ def forgot():
             return redirect(url_for('login'))
         else:
             return 'Invalid user'
-    return render_template('Forgot.html')
+    return render_template('forgot.html')
 @app.route('/createpassword/<token>',methods=['GET','POST'])
 def createpassword(token):
         try:

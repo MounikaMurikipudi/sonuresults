@@ -116,7 +116,7 @@ def otp(otp,user,Email,password,ccode):
             return redirect(url_for('login'))
         else:
             flash('Worng otp')
-            return render_template('otp.html',otp=otp,user=user,Email=Email,password=password,ccode=ccode)
+            return render_template('otp.html',otp=otp,user=user,Email=Email,password=password,Ccode=Ccode)
 @app.route('/addstudent',methods=['GET','POST'])
 def addstudent():
     if session.get('user'):
